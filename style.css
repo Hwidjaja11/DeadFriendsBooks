@@ -1,0 +1,180 @@
+body {
+    text-align:center;
+    overflow-x: hidden;
+}
+
+.grey-button {
+    background-color:revert;
+    margin-left:revert;
+}
+
+button {
+    background-color:aquamarine;
+    border-color: aqua;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+button:hover {
+    cursor:pointer;
+    filter:brightness(0.8);
+}
+
+button:active {
+    cursor:pointer;
+    filter:brightness(0.6);
+}
+
+.short-line {
+    width:50%;
+    margin-top:800px;
+}
+
+ /* Wide container for the title */
+    .title-wrapper {
+      position: relative;
+      text-align: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 10px 30px rgba(163, 177, 198, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      width: 100vw;
+    }
+
+    /* Decorative pastel shapes floating in the background */
+    .title-wrapper::before,
+    .title-wrapper::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.6;
+      animation: float 6s ease-in-out infinite alternate;
+    }
+
+    /* Mint pastel blob */
+    .title-wrapper::before {
+      width: 100px;
+      height: 100px;
+      background: #cbf3f0;
+      top: -30px;
+      left: -20px;
+    }
+
+    /* Lavender pastel blob */
+    .title-wrapper::after {
+      width: 120px;
+      height: 120px;
+      background: #e8dbfc;
+      bottom: -40px;
+      right: -10px;
+      animation-delay: -3s;
+    }
+
+    /* Container to isolate the gradient blending */
+    .title-gradient-box {
+      position: relative;
+      display: inline-block;
+      background-color: #f7f9fc;
+    }
+
+    /* The actual heading styling - Clean & Standard */
+    /* Update your main-title selector to this */
+.main-title {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin: 0;
+  display: block;
+  user-select: none;
+
+  /* This applies the moving pastel colors directly to the text font */
+  background: linear-gradient(135deg, #ffc6ff, #9bf6ff, #bffcc6, #ffd6a5, #bdb2ff);
+  background-size: 400% auto;
+  
+  /* Modern standard properties to clip the gradient inside the text lines */
+  background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* Makes the inner text fill transparent so the background colors show through */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  animation: gradientShift 16s ease infinite;
+}
+
+.title-gradient-box {
+  background-color: transparent !important; /* Forces the box background to disappear */
+  background: none !important;
+  display: inline-block;
+  position: relative;
+}
+    
+
+    /* Animation for shifting the pastel gradient smoothly */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Animation for the floating backdrop circles */
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-15px) scale(1.1); }
+    }
+
+    .largerp {
+        font-size: 23px; 
+    }
+
+    /* === PASTEL TOP CORNER DECORATIONS === */
+.corner-decor {
+  position: fixed;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(60px); /* Creates the soft, dreamy ambient glow */
+  opacity: 0.5;
+  z-index: -2; /* Keeps them safely behind all text and layouts */
+  pointer-events: none; /* Allows users to click right through them */
+  animation: ambientPulse 8s ease-in-out infinite alternate;
+}
+
+/* Top Left Corner - Soft Blush Pink */
+.decor-left {
+  left: 0;
+  background: #ffc6ff;
+  --tw-x: -30%;
+  --tw-y: -30%;
+  transform: translate(var(--tw-x), var(--tw-y));
+}
+
+/* Top Right Corner - Soft Sky Blue */
+.decor-right {
+  right: 0;
+  background: #9bf6ff;
+  --tw-x: 30%;
+  --tw-y: -30%;
+  transform: translate(var(--tw-x), var(--tw-y));
+  animation-delay: -4s; /* Offsets the pulse cycle for a organic feel */
+}
+
+/* Subtle breathing animation for the corner glows */
+@keyframes ambientPulse {
+  0% { 
+    transform: translate(var(--tw-x), var(--tw-y)) scale(1); 
+    opacity: 0.4; 
+  }
+  100% { 
+    transform: translate(var(--tw-x), var(--tw-y)) scale(1.15); 
+    opacity: 0.6; 
+  }
+}
